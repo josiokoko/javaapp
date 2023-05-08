@@ -73,7 +73,7 @@ pipeline {
 						// sh "aws ecr get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin ${registry_id}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com"
 						// NAMESPACE_NAME="health-check" && \
 						
-						sh 'kubectl create secret docker-registry regcred --docker-server=${registry_id}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com --docker-username=AWS --docker-password=$(aws ecr get-login-password)'
+						sh returnStatus: true, script: 'kubectl create secret docker-registry regcred --docker-server=${registry_id}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com --docker-username=AWS --docker-password=$(aws ecr get-login-password)'
 						// --namespace=$NAMESPACE_NAME || true && \
 					
 						sh 'kubectl apply -f dnginx.yaml'
