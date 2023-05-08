@@ -16,6 +16,8 @@ spec:
         image: ${repository_url}:${BUILD_ID}
         ports:
         - containerPort: 3000
+      imagePullSecrets:
+        - name: regcred
 --- 
 apiVersion: v1
 kind: Service
