@@ -6,4 +6,5 @@ RUN javac Hello.java
 FROM openjdk:11-jre-slim
 COPY --from=buildstage /app/Hello.class /app/
 WORKDIR /app
+EXPOSE 3000
 CMD java Hello
