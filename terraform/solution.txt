@@ -1,0 +1,27 @@
+i.) How would you deploy this application to AWS?
+
+https://github.com/josiokoko/nextjs-app-starter.git
+ 
+
+* Describe your build pipeline, including tools used.
+
+Continous Integration (Code development)
+	- Dockerizing the application
+	- Setting EKS Cluster
+		- VPC
+		- Subnets (private & public)
+		- Security Groups
+		- Worker nodes (eksctl)
+	- Testing/Quality Checks
+	- VCS - GitHub
+Continuous Deployment
+	- Jenkins Pipeline
+		- IaC with Terraform
+			- Get (or Create) s3 bucket
+			- Get or create Dynamodb
+		- Create or Get ECR repo
+		- Build docker image
+		- ECR authentication
+		- Deploy image to ECR
+		- Pull the image fro ECR
+		- Deploy EKS cluster

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nextjs
+spec:
+  selector:
+    matchLabels:
+      app: nextjs
+  template:
+    metadata:
+      labels:
+        app: nextjs
+    spec:
+      containers:
+      - name: nextjs
+        image: ${repository_url}:${BUILD_ID}
+        ports:
+        - containerPort: 3000
+--- 
+apiVersion: v1
+kind: Service
+metadata:
+  name: nextjs
+spec:
+  type: LoadBalancer
+  selector:
+    app: nextjs
+  ports:
+  - port: 3000
+    targetPort: 3000
+

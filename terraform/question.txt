@@ -1,0 +1,6 @@
+i.) How would you deploy this application to AWS?
+
+https://github.com/josiokoko/nextjs-app-starter.git
+ 
+
+* Describe your build pipeline, including tools used.
